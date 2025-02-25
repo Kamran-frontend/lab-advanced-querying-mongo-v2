@@ -108,6 +108,8 @@ set sort options: `{"acquisition.price_amount": -1}`
 
 <!-- Your Query Goes Here -->
 
+``
+
 <br>
 
 **2. Order the companies by their `founded year`, retrieving only their `name` and `founded year`.**
