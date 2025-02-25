@@ -8,11 +8,19 @@
 
 <!-- Your Query Goes Here -->
 
+`{"name": "Babelgum"}`
+and for the Project Options `{ name: 1, _id: 0 }`
+
 <br>
 
-**2. All the companies that have more than 5000 employees. Limit the search to 20 companies and sort them by *number of employees*.**
+**2. All the companies that have more than 5000 employees. Limit the search to 20 companies and sort them by _number of employees_.**
 
 <!-- Your Query Goes Here -->
+
+`{ "number_of_employees": { "$gt": 5000 } }`
+
+For sort options: `"{number_of_employees": -1}`
+and set limit to `20` from the Options
 
 <br>
 
@@ -20,11 +28,17 @@
 
 <!-- Your Query Goes Here -->
 
+`{ "founded_year": { "$gte": 2000, "$lte": 2005 } }`
+and for the Project Options `{name:1, founded_year:1, _id:0}`
+
 <br>
 
 **4. All the companies that had a Valuation Amount of more than 100.000.000 and have been founded before 2010. Retrieve only the `name` and `ipo` fields.**
 
 <!-- Your Query Goes Here -->
+
+`{ "ipo.valuation_amount": { "$gt": 100000000 }, "founded_year": { "$lt": 2010 } }`
+and for the Project Options `{name:1, ipo:1, _id:0}`
 
 <br>
 
@@ -32,11 +46,19 @@
 
 <!-- Your Query Goes Here -->
 
+`{ "partners": { "$exists": false } }`
+
+I think it should work but this shows nothing...
+
 <br>
 
 **6. All the companies that have a null value on the `category_code` field.**
 
 <!-- Your Query Goes Here -->
+
+`{ "category_code": null }`
+
+and for the Project Options `{category_code: 1, _id:0}`
 
 <br>
 
@@ -44,11 +66,20 @@
 
 <!-- Your Query Goes Here -->
 
+`{ "ipo.valuation_amount": { "$exists": true } }`
+
+For sort options: `{"ipo.valuation_amount": -1}`
+
 <br>
 
 **8. Retrieve the 10 companies with most employees, order by the `number of employees`.**
 
 <!-- Your Query Goes Here -->
+
+`{ }`
+For Project option: `{number_of_employees: 1, _id:0}`
+For sort options: `{"number_of_employees": -1}`
+set limit to `10`
 
 <br>
 
@@ -56,11 +87,18 @@
 
 <!-- Your Query Goes Here -->
 
+`{ "founded_month": { "$gte": 7, "$lte": 12 } }`
+set limit to `1000`
+
 <br>
 
 **10. All the companies that have been founded on the first seven days of the month, including the seventh. Sort them by their `acquisition price` in a descending order. Limit the search to 10 documents.**
 
 <!-- Your Query Goes Here -->
+
+`{ "founded_day": { "$gte": 1, "$lte": 7 } }`
+
+set sort options: `{"acquisition.price_amount": -1}`
 
 <br>
 
